@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_URI'] == "/") {
 
 // добавляем в базу
 if (!empty($_POST) && $_SERVER['REQUEST_URI'] == "/order/add") {
-    require_once($appDir .DIRECTORY_SEPARATOR . 'app.php');
+    require_once($appDir .DIRECTORY_SEPARATOR . 'form.php');
     return 0;
 }
 
