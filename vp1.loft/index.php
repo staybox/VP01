@@ -15,8 +15,8 @@ if ($_SERVER['REQUEST_URI'] == "/") {
 }
 
 // добавляем в базу
-if (!empty($_POST) && $_SERVER['REQUEST_URI'] == "/order/add") {
-    require_once($appDir .DIRECTORY_SEPARATOR . 'form.php');
+if ($_SERVER['REQUEST_URI'] == "/order/add") {
+    include_once($appDir .DIRECTORY_SEPARATOR . 'order.php');
     return 0;
 }
 
@@ -34,3 +34,4 @@ if ($_SERVER['REQUEST_URI'] == "/admin/orders") {
 
 // такой страницы нет
 header("HTTP/1.0 404 Not Found");
+//!empty($_POST) &&
