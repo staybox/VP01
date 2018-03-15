@@ -64,21 +64,21 @@
             <td colspan="4" class="table-name">Пользователи</td>
         </tr>
         <tr>
-            <td width="50px">id</td>
-            <td width="200px">name</td>
-            <td width="300px">email</td>
-            <td width="200px">phone</td>
+            <td width="50px">USER_ID</td>
+            <td width="200px">NAME</td>
+            <td width="300px">EMAIL</td>
+            <td width="200px">PHONE</td>
         </tr>
         </thead>
         <tbody>
-        <?php while ($row = $sth_users->fetch()) : ?>
+        <?php foreach ($users as $key=>$value) : ?>
             <tr>
-                <td class="td-align-center"><?php echo $row['id']; ?></td>
-                <td class="td-align-left"><?php echo $row['name']; ?></td>
-                <td class="td-align-left"><?php echo $row['email']; ?></td>
-                <td class="td-align-center"><?php echo $row['phone']; ?></td>
+                <td class="td-align-center"><?php echo $value['USER_ID']; ?></td>
+                <td class="td-align-left"><?php echo $value['NAME']; ?></td>
+                <td class="td-align-left"><?php echo $value['EMAIL']; ?></td>
+                <td class="td-align-center"><?php echo $value['PHONE']; ?></td>
             </tr>
-        <?php endwhile; ?>
+        <?php endforeach; ?>
         </tbody>
     </table>
 
@@ -99,16 +99,17 @@
         </thead>
         <tbody>
         <?php require_once 'utils.php'; ?>
-        <?php while ($row = $sth_orders->fetch()) : ?>
-            <?php $addr = makeBeautyAddress($row['street'], $row['home'], $row['part'], $row['appt'], $row['floor']); ?>
+        <?php foreach ($orders as $key=>$row) : ?>
+            <?php $addr = makeBeautyAddress($row['STREET'], $row['HOME'], $row['PART'], $row['APPT'], $row['FLOOR']); ?>
+            <?php //$addr = $row['STREET']. $row['HOME']. $row['PART']. $row['APPT']. $row['FLOOR']; ?>
             <tr>
-                <td class="td-align-center"><?php echo $row['id']; ?></td>
+                <td class="td-align-center"><?php echo $row['USER_ID']; ?></td>
                 <td class="td-align-left"><?php echo $row['username']; ?></td>
                 <td class="td-align-left"><?php echo $addr; ?></td>
-                <td class="td-align-center"><?php ($row['payment'] > 0) ? ($p = 'card') : ($p = '$'); echo $p; ?></td>
-                <td class="td-align-center"><?php ($row['callback'] > 0) ? ($c = 'no') : ($c = ''); echo $c; ?></td>
+                <td class="td-align-center"><?php ($row['PAYMENT'] > 0) ? ($p = 'card') : ($p = '$'); echo $p; ?></td>
+                <td class="td-align-center"><?php ($row['CALLBACK'] > 0) ? ($c = 'no') : ($c = ''); echo $c; ?></td>
             </tr>
-        <?php endwhile; ?>
+        <?php endforeach; ?>
         </tbody>
     </table>
 

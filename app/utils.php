@@ -2,12 +2,12 @@
 // Функция для формирования адреса в удобочитаемом виде
 function makeBeautyAddress($street, $home, $part, $appt, $floor)
 {
-    $addrPart = ['street', 'home', 'part', 'appt', 'floor'];
+    $addrPart = [$street, $home, $part, $appt, $floor];
     $addrPrefix = ['ул. ', 'д. ', 'корп. ', 'кв. ', 'этаж '];
     $address = '';
     for ($i = 0; $i < count($addrPart); $i++) {
-        if (!empty(${$addrPart[$i]})) {
-            $address .= $addrPrefix[$i] . ${$addrPart[$i]} . ', ';
+        if (!empty($addrPart[$i])) {
+            $address .= $addrPrefix[$i] . $addrPart[$i] . ', ';
         }
     }
     $address = trim($address); // удаляем пробелы вначале и в конце строки
