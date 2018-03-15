@@ -15,14 +15,14 @@ if ($_SERVER['REQUEST_URI'] == "/") {
 }
 
 // добавляем в базу
-if ($_SERVER['REQUEST_URI'] == "/order/add") {
+if (!empty($_POST) && $_SERVER['REQUEST_URI'] == "/order/add") {
     include_once($appDir .DIRECTORY_SEPARATOR . 'order.php');
     return 0;
 }
 
 // просмотр пользователей (административная панель)
 if ($_SERVER['REQUEST_URI'] == "/admin/users") {
-    // тут код вывода
+    include_once($appDir .DIRECTORY_SEPARATOR . 'admin.php');
     return 0;
 }
 
@@ -30,6 +30,12 @@ if ($_SERVER['REQUEST_URI'] == "/admin/users") {
 if ($_SERVER['REQUEST_URI'] == "/admin/orders") {
     // тут код вывода
     return 0;
+}
+
+// обработка ошибок
+if (strpos($_SERVER['REQUEST_URI'], 'errcode') > 0) {
+    require_once($appDir . '/error.php');
+    return;
 }
 
 // такой страницы нет
