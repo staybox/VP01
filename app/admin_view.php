@@ -90,11 +90,11 @@
             <td colspan="5" class="table-name">Заказы</td>
         </tr>
         <tr>
-            <td width="50px">id</td>
-            <td width="200px">username</td>
-            <td width="500px">address</td>
-            <td width="80px">payment</td>
-            <td width="80px">callback</td>
+            <td width="50px">USER_ID</td>
+            <td width="200px">USERNAME</td>
+            <td width="500px">ADDRESS</td>
+            <td width="80px">PAYMENT</td>
+            <td width="80px">CALLBACK</td>
         </tr>
         </thead>
         <tbody>
