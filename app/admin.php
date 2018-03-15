@@ -8,7 +8,7 @@ if ($dbh === false) {
 // Получаем данные из базы
 try {
     // Пользователи:
-    $sth_users = $dbh->query('SELECT * FROM users ORDER BY user_id');
+    $sth_users = $dbh->query('SELECT * FROM users ORDER BY id');
 } catch (PDOException $e) {
     header("Location: /?errcode=4003");
     return;
